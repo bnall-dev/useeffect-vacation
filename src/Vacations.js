@@ -16,8 +16,14 @@ function Vacations(props) {
     return (
       <div className="vacation" key={key}>
         <span>
-          {formatTime(vacation.startDate)} to {formatTime(vacation.endDate)} (
-          {days} days)
+          {moment(vacation.startDate)
+            .add(1, 'day')
+            .format('dddd MM/DD/YYYY ')}{' '}
+          to{' '}
+          {moment(vacation.endDate)
+            .add(1, 'day')
+            .format('dddd MM/DD/YYYY')}{' '}
+          ({days} days)
         </span>
         <button
           className="destroyVacation"
